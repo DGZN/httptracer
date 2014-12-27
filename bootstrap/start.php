@@ -25,7 +25,7 @@ $app = new Illuminate\Foundation\Application;
 */
 
 $env = $app->detectEnvironment(array(
-    'development' => array('*.dev', gethostname()),
+    'local' => array(gethostname()),
     'production' => array('http://laraveldev01.eu1.frbit.net/')
 ));
 
