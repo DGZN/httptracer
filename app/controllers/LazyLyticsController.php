@@ -27,6 +27,8 @@ class LazyLyticsController extends \BaseController {
 
 		}
 
+		return $endpoints;
+
 		return View::make('lazylytics.index', ['endpoints' => $endpoints] );
 	}
 

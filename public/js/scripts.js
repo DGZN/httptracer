@@ -1,6 +1,6 @@
 $(document).ready(function()
 {
-	baseURL = 'http://198.58.113.159/'
+	baseURL = 'http://localhost:8888/'
 
 	endpointId = $('#endpointID').val()
 
