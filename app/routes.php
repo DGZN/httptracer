@@ -33,6 +33,9 @@ Route::get('login', 'SessionsController@create');
 
 Route::get('logout', 'SessionsController@destroy');
 
+ 	Route::resource('users','UsersController'); 	
+
+
 Route::resource('sessions', 'SessionsController');
 
 Route::get('traces/endpoint/{id}', 'TracesController@byEndpointId');
@@ -47,7 +50,6 @@ Route::group(array('before' => 'auth'), function()
   		return '-- Admin --';
   	});
  	
- 	Route::resource('users','UsersController'); 	
 
 	Route::resource('endpoints','EndpointsController');
 
