@@ -1,5 +1,7 @@
 $(document).ready(function()
 {
+	baseURL = 'http://198.58.113.159/'
+
 	endpointId = $('#endpointID').val()
 
 	$('[data-toggle=offcanvas]').click(function() {
@@ -16,7 +18,7 @@ $(document).ready(function()
 
 	traceTable = $('#endpointTable').DataTable({
 
-		'ajax': 'http://localhost:8888/traces/' + endpointId
+		'ajax': baseURL + 'traces/' + endpointId
 
 	});
 
@@ -52,7 +54,7 @@ $(document).ready(function()
 
 	        $.ajax({
 				type: 'DELETE',
-				url: 'http://localhost:8888/traces/' + traceId,
+				url: baseURL + 'traces/' + traceId,
 				success: function(response){
 					updateEndpointStats(endpointId)
 					traceTable.row('.selected').remove().draw( false );
@@ -89,7 +91,7 @@ $(document).ready(function()
 
 			$.ajax({
 				type: 'DELETE',
-				url: 'http://localhost:8888/traces/' + traceId,
+				url: baseURL + 'traces/' + traceId,
 				success: function(response){
 					updateEndpointStats(endpointId)
 				}
@@ -103,7 +105,7 @@ $(document).ready(function()
 
 		$.ajax({
 			type: 'GET',
-			url: 'http://localhost:8888/traces/endpoint/' + endpointId,
+			url: baseURL + 'traces/endpoint/' + endpointId,
 			success: function(response){
 
 				$('#traceMax').html( response.trace.max )
