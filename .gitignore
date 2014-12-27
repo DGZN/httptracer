@@ -1,0 +1,5 @@
+sappdata/
+vendor/
+app/config/local
+composer.json
+app/Ninjabox/Logs
