@@ -69,6 +69,8 @@ class EndpointsController extends \BaseController {
 
 		$traces   = $this->trace->find($endpoint->URI);
 
+		return $traces;
+
 		return View::make('endpoints.show', [
 
 			'endpoint' => $endpoint,

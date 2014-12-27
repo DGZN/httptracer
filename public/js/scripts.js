@@ -1,6 +1,6 @@
 $(document).ready(function()
 {
-	baseURL = 'http://198.58.113.159/'
+	baseURL = '/'
 
 	// baseURL = 'http://localhost:8888/'
 
