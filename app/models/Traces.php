@@ -8,6 +8,8 @@ class Trace {
 	{
 		if( ! $traces = $this->traces($URI)) return '!ERROR! -- Could Not Find Any Traces';
 		
+		// EVERYTHING AFTER THIS SHOULD BE ABSTRACTED
+
 		$avg = 0;
 
 		foreach ( array_reverse($traces) as &$trace) {
@@ -34,7 +36,8 @@ class Trace {
 
 			'avg'       => number_format(( $avg ? floor( $avg / count($traces) ) : 0 )),
 			'min' 		=> number_format(min($int)),
-			'max'		=> numbeR_format(max($int)),
+			'max'		=> number_format(max($int)),
+			'apdex'     => $this->calculate_apdex($data['records']), // SHOULD BE IN OWN CLASS
 			'report' => $timeSinceLastTrace . ' minutes since last trace',
 			'records'   => array_reverse($data['records'])
 
@@ -69,6 +72,32 @@ class Trace {
 		if( ! Redis::LREM($this->namespace.'#'.$key, 0, $value) ) return false;
 
 		return true;
+	}
+
+	private function calculate_apdex($traces)
+	{
+		foreach ( $traces as $trace ) {
+			
+			$time = (INT) $trace['time'];
+
+			if ( $time < 150 )
+			{
+				$apdex['satifactory'][] = $trace;
+			}
+
+			if ( ($time > 150) && ($trace < 300) )
+			{
+				$apdex['tolerable'][] = $trace;
+			}
+
+			if ( $time > 300 )
+			{ 
+				$apdex['frusturated'][] = $trace;
+			}
+
+		}
+
+		return $apdex;
 	}
 
 }
