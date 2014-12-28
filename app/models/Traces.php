@@ -124,6 +124,8 @@ class Trace {
 
 		}
 
+		$apdex['score']['total'] = count($traces);
+
 
 
 		return $apdex;
