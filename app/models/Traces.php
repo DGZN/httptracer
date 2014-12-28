@@ -91,31 +91,21 @@ class Trace {
 
 			if ( $time < 2000 )
 			{
-				$apdex['satifactory']['records'][] = $trace;
+				$apdex['satifactory'][] = $trace;
 			}
 
 			if ( ($time > 2000) && ($trace < 8000) )
 			{
-				$apdex['tolerable']['records'][] = $trace;
+				$apdex['tolerable'][] = $trace;
 			}
 
 			if ( $time > 5000 )
 			{ 
-				$apdex['frusturating']['records'][] = $trace;
+				$apdex['frusturating'][] = $trace;
 			}
 
 		}
 
-		$apdex['score'] = ( ( count($apdex['satifactory']['records']) + ( count($apdex['tolerable']['records']) / 2 ) ) / 2 );
-
-		if ( isset($apdex['satifactory']['records']) ) 
-			$apdex['satifactory']['count'] = count($apdex['satifactory']['records']);
-
-		if ( $apdex['tolerable']['records'] )
-			$apdex['tolerable']['count'] = count($apdex['tolerable']['records']);
-
-		if ( $apdex['frusturating']['records'] )
-			$apdex['frusturating']['count'] = count($apdex['frusturating']['records']);
 
 
 		return $apdex;
