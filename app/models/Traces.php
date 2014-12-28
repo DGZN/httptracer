@@ -90,7 +90,7 @@ class Trace {
 				$apdex['tolerable'][] = $trace;
 			}
 
-			if ( $time > 8000 )
+			if ( $time > 5000 )
 			{ 
 				$apdex['frusturated'][] = $trace;
 			}
