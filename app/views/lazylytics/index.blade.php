@@ -50,16 +50,27 @@
 
 .endpointStats h4 {
     font-size: 2em;
-    font-weight: 400;
+    font-weight: 300;
     margin: 2%;
+    color: #ffffff;
 }
 
 
 .endpointStats h4 .sub {
     position: relative;
-    top: -5px;
-    left: -1%;
-    font-size: 16px;
+    top: 8px;
+    left: -4px;
+    color: #999999;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 200;
+}
+
+.endpointStats h4 .sub .sub {
+    position: relative;
+    top: 2px;
+    left: -3%;
+    font-size: 10px;
     font-style: italic;
     font-weight: 400;
 }
@@ -86,6 +97,17 @@
   opacity: .5;
 }
 
+.apdex-bad {
+    color: red;
+}
+
+.apdex-average {
+    color: blue;
+}
+
+.apdex-good {
+    color: green;
+}
 </style>
 
 @stop
@@ -100,7 +122,7 @@
 
             @foreach ($endpoints as $endpoint)
 
-            <div class="col-sm-4 col-md-3 col-lg-2 ">
+            <div class="col-sm-4 col-md-4 col-lg-3 ">
 
                  <div class="panel panel-default">
 
@@ -114,7 +136,7 @@
 
                         <a href="{{ url( '/endpoints/' . $endpoint->id . '/edit' ) }}" >
 
-                            <span class="pull-right glyphicon glyphicon-bookmark"></span> 
+                            <span class="pull-right glyphicon glyphicon-bookmark {{$endpoint['traces']['apdex']['level']}}"></span> 
 
                         </a> 
 
@@ -128,7 +150,7 @@
 
                                 <a href="/endpoints/{{$endpoint->id}}">
                                 
-                                    <h4 class="text-primary"> {{ $endpoint['traces']['avg'] }} <span class="sub">ms</span> </h4>
+                                    <h4 class="text"> {{$endpoint['traces']['apdexScore']}} <span class="sub"> 4 </span> </h4>
 
                                 </a>
 
