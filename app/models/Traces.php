@@ -81,7 +81,7 @@ class Trace {
 	{
 		$apdex = [
 
-			'satifactory'  => [],
+			'satisfactory'  => [],
 			'tolerable'    => [],
 			'frusturating' => [],
 			'score'        => 0
@@ -94,7 +94,7 @@ class Trace {
 
 			if ( $time < 1000 )
 			{
-				$apdex['satifactory'][] = $trace;
+				$apdex['satisfactory'][] = $trace;
 			}
 
 			if ( ($time > 1000) && ($time < 4000) )
@@ -109,41 +109,42 @@ class Trace {
 
 		}
 
-		if ( count($apdex['satifactory']) ){
+		/*-----------------------------------------------------------------------------
+		|                                APDEX G Specification
+		|------------------------------------------------------------------------------
+		|
+        |
+		|                                          Tolerating_Count     
+        |                                      -----------------------
+		|                 Satisfied_Count  +              2
+		|   Apdex =   ——————————————————————------------------------------
+        |                                 Total_Samples
+        |
+        |
+		|
+		*/
 
-			$apdex['stats']['satifactory'] = count($apdex['satifactory']);
+		$apdex['stats']['satisfactory'] = count($apdex['satisfactory']) ? count($apdex['satisfactory']) : 0;
 
-		}
+		$apdex['stats']['satisfactoryPct'] = ( $apdex['stats']['satisfactory'] / count($traces) ) * 100;
 
-		if ( count($apdex['tolerable']) ){
+		$apdex['stats']['tolerable'] = count($apdex['tolerable']) ? count($apdex['tolerable']) : 0;
 
-			$apdex['stats']['tolerable'] = count($apdex['tolerable']);
+		$apdex['stats']['tolerablePct'] = ( $apdex['stats']['tolerable'] / count($traces) ) * 100;
 
-		}
-
-		if ( count($apdex['frusturating']) ){
-
-			$apdex['stats']['frusturating'] = count($apdex['frusturating']);
-
-		}
-
+		$apdex['stats']['frusturating'] = count($apdex['frusturating']) ? count($apdex['frusturating']) : 0;
+		
+		$apdex['stats']['frusturatingPct'] = ( $apdex['stats']['frusturating'] / count($traces) ) * 100;
+		
 		$apdex['stats']['total'] = count($traces);
 
 
-		/* 
-		                                         Tolerating_Count     
-                                             ----------------------
-		                Satisfied_Count  +              2
-			Apdex =   ——————————————————————------------------------------
-                                         Total_Samples
-
-		*/
-
-		$satisfied = count($apdex['satifactory']) ? count($apdex['satifactory']) : 0;
+		$satisfied = count($apdex['satisfactory']) ? count($apdex['satisfactory']) : 0;
 		
 		$tolerables = count($apdex['tolerable']) ? count($apdex['tolerable']) : 0;
 
         $apdex['score'] = ( ( $satisfied + ( $tolerables / 2 ) ) / count($traces) );
+
 
 		return $apdex;
 	}
