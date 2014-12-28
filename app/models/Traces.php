@@ -76,6 +76,15 @@ class Trace {
 
 	private function calculate_apdex($traces)
 	{
+		$apdex = [
+
+			'satifactory'  => [],
+			'tolerable'    => [],
+			'frusturating' => [],
+			'score'        => 0
+
+		];
+
 		foreach ( $traces as $trace ) {
 			
 			$time = (INT) $trace['time'];
@@ -92,10 +101,12 @@ class Trace {
 
 			if ( $time > 5000 )
 			{ 
-				$apdex['frusturated'][] = $trace;
+				$apdex['frusturating'][] = $trace;
 			}
 
 		}
+
+		$apdex['score'] = ( ( count($apdex['satifactory']) + ( count($apdex['tolerable']) / 2 ) ) / 2 );
 
 		return $apdex;
 	}
