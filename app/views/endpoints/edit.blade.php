@@ -216,23 +216,23 @@ PROGRESS BAR
 
 						    <div class="col-md-5 col-sm-4 endpointStatPanel">
 
-								<h4 class="big-heading">APDEX Score: 0.51</h4>
+								<h4 class="big-heading">APDEX Score: {{ $traces['apdexScore'] }}</h4>
 
-								<p class="big text-danger">Frusturating Traces - <span class="text-danger">[5 traces]</span></p>
+								<p class="big text-danger">Frusturating Traces - <span class="text-danger">[{{ count($traces['apdex']['frusturating']) }} traces]</span></p>
 
 								<div class="progress no-rounded progress-xs bg-dark">
 								  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
 								  </div><!-- /.progress-bar .progress-bar-danger -->
 								</div><!-- /.progress .no-rounded -->
 								
-								<p class="big text-warning">Tolerable Traces - <span class="text-warning">[25 traces]</span></p>
+								<p class="big text-warning">Tolerable Traces - <span class="text-warning">[{{ count($traces['apdex']['tolerable']) }} traces]</span></p>
 								
 								<div class="progress no-rounded progress-xs bg-dark">
 								  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%">
 								  </div><!-- /.progress-bar .progress-bar-warning -->
 								</div><!-- /.progress .no-rounded -->
 								
-								<p class="big text-success">Satifactory Traces - <span class="text-success">[160 traces]</span></p>
+								<p class="big text-success">Satifactory Traces - <span class="text-success">[{{ count($traces['apdex']['satifactory']) }} traces]</span></p>
 								
 								<div class="progress no-rounded progress-xs bg-dark">
 								  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
