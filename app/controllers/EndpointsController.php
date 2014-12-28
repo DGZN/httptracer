@@ -68,7 +68,7 @@ class EndpointsController extends \BaseController {
 		$endpoint = $this->endpoint->findOrFail($id);
 
 		$traces   = $this->trace->find($endpoint->URI);
-		return $traces;
+
 		return View::make('endpoints.show', [
 
 			'endpoint' => $endpoint,
@@ -102,7 +102,7 @@ class EndpointsController extends \BaseController {
 		$endpoint = $this->endpoint->findOrFail($id);
 
 		$traces   = $this->trace->find($endpoint->URI);
-		
+		//return $traces;
 		return View::make('endpoints.edit', [
 
 			'endpoint' => $endpoint,
