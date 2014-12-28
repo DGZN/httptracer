@@ -92,17 +92,17 @@ class Trace {
 			
 			$time = (INT) $trace['time'];
 
-			if ( $time < 500 )
+			if ( $time < 1000 )
 			{
 				$apdex['satifactory'][] = $trace;
 			}
 
-			if ( ($time > 500) && ($time < 2000) )
+			if ( ($time > 1000) && ($time < 4000) )
 			{
 				$apdex['tolerable'][] = $trace;
 			}
 
-			if ( $time > 2000 )
+			if ( $time > 4000 )
 			{ 
 				$apdex['frusturating'][] = $trace;
 			}
