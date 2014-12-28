@@ -97,7 +97,7 @@ class Trace {
 				$apdex['satisfactory'][] = $trace;
 			}
 
-			if ( ($time > 1000) && ($time < 4000) )
+			if ( ($time >= 1000) && ($time <= 4000) )
 			{
 				$apdex['tolerable'][] = $trace;
 			}
@@ -112,13 +112,21 @@ class Trace {
 		/*-----------------------------------------------------------------------------
 		|                                APDEX G Specification
 		|------------------------------------------------------------------------------
-		|
-        |
-		|                                          Tolerating_Count     
-        |                                      -----------------------
-		|                 Satisfied_Count  +              2
-		|   Apdex =   ——————————————————————------------------------------
-        |                                 Total_Samples
+		|    [ APDEX Metrics Table ]
+		|-------------------------------
+		| T            |  1000ms       |
+        |------------------------------- 
+        | Satisfied    |    <= T       |
+		|-------------------------------
+		| Tolerated    |  >T, <= 4T    |
+		|-------------------------------
+		| Frusturated  |    >4T        |
+		|-------------------------------
+		|                                         Tolerated Count
+        |                                     -----------------------
+		|               Satisfied Count   +             2
+		|   APDEX =   ——————————————————————------------------------------
+        |                              Total Count
         |
         |
 		|
@@ -145,6 +153,10 @@ class Trace {
 
         $apdex['score'] = ( ( $satisfied + ( $tolerables / 2 ) ) / count($traces) );
 
+        if ( $apdex['score'] <= 50 ) $apdex['level'] = 'apdex-bad';
+        if ( ($apdex['score'] >= 50) && ($apdex['score'] <= 75) ) $apdex['level'] = 'apdex-average';
+        if ( $apdex['score'] > 75 ) $apdex['level'] = 'apdex-good';
+        
 
 		return $apdex;
 	}
