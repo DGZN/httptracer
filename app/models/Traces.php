@@ -39,7 +39,7 @@ class Trace {
 			'avg'        => number_format(( $avg ? floor( $avg / count($traces) ) : 0 )),
 			'min' 		 => number_format(min($int)),
 			'max'		 => number_format(max($int)),
-			'apdexScore' => number_format($apdex['score']),
+			'apdexScore' => sprintf("%.2f", $apdex['score']),
 			'apdex'      => $apdex, // SHOULD BE IN OWN CLASS
 			'report'     => $timeSinceLastTrace . ' minutes since last trace',
 			'records'    => array_reverse($data['records'])
