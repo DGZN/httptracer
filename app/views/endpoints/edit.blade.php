@@ -218,21 +218,21 @@ PROGRESS BAR
 
 								<h4 class="big-heading">APDEX Score: {{ $traces['apdexScore'] }}</h4>
 
-								<p class="big text-danger">Frusturating Traces - <span class="text-danger">[{{ count($traces['apdex']['frusturating']) }} traces]</span></p>
+								<p class="big">Frusturating Traces - <span class="text-danger">[{{ count($traces['apdex']['frusturating']) }} traces]</span></p>
 
 								<div class="progress no-rounded progress-xs bg-dark">
 								  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{{ $traces['apdex']['stats']['frusturatingPct'] }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $traces['apdex']['stats']['frusturatingPct'] }}%">
 								  </div><!-- /.progress-bar .progress-bar-danger -->
 								</div><!-- /.progress .no-rounded -->
 								
-								<p class="big text-warning">Tolerable Traces - <span class="text-warning">[{{ count($traces['apdex']['tolerable']) }} traces]</span></p>
+								<p class="big">Tolerable Traces - <span class="text-warning">[{{ count($traces['apdex']['tolerable']) }} traces]</span></p>
 								
 								<div class="progress no-rounded progress-xs bg-dark">
 								  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{ $traces['apdex']['stats']['tolerablePct'] }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $traces['apdex']['stats']['tolerablePct'] }}%">
 								  </div><!-- /.progress-bar .progress-bar-warning -->
 								</div><!-- /.progress .no-rounded -->
 								
-								<p class="big text-success">Satifactory Traces - <span class="text-success">[{{ count($traces['apdex']['satisfactory']) }} traces]</span></p>
+								<p class="big">Satifactory Traces - <span class="text-success">[{{ count($traces['apdex']['satisfactory']) }} traces]</span></p>
 								
 								<div class="progress no-rounded progress-xs bg-dark">
 								  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{ $traces['apdex']['stats']['satisfactoryPct'] }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $traces['apdex']['stats']['satisfactoryPct'] }}%">
