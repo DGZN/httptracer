@@ -127,6 +127,20 @@ class Trace {
 		$apdex['stats']['total'] = count($traces);
 
 
+		/* 
+		                                         Tolerating_Count     
+                                             ----------------------
+		                Satisfied_Count  +              2
+			Apdex =   ——————————————————————------------------------------
+                                         Total_Samples
+
+		*/
+
+		$satisfied = count($apdex['satifactory']) ? count($apdex['satifactory']) : 0;
+		
+		$tolerables = count($apdex['tolerable']) ? count($apdex['tolerable']) : 0;
+
+        $apdex['score'] = ( $satisfied + ( $tolerables / 2 ) ) / 2;
 
 		return $apdex;
 	}
