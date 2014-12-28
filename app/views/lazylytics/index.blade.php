@@ -98,15 +98,15 @@
 }
 
 .apdex-bad {
-    color: red;
+    color: red !important;
 }
 
 .apdex-average {
-    color: blue;
+    color: blue !important;
 }
 
 .apdex-good {
-    color: green;
+    color: green !important;
 }
 </style>
 
@@ -136,7 +136,7 @@
 
                         <a href="{{ url( '/endpoints/' . $endpoint->id . '/edit' ) }}" >
 
-                            <span class="pull-right glyphicon glyphicon-bookmark {{$endpoint['traces']['apdex']['level']}}"></span> 
+                            <span class="pull-right glyphicon glyphicon-bookmark "></span> 
 
                         </a> 
 
@@ -150,7 +150,7 @@
 
                                 <a href="/endpoints/{{$endpoint->id}}">
                                 
-                                    <h4 class="text"> {{$endpoint['traces']['apdexScore']}} <span class="sub"> 4 </span> </h4>
+                                    <h4 class="text {{$endpoint['traces']['apdex']['level']}}"> {{$endpoint['traces']['apdexScore']}} <span class="sub"> 4 </span> </h4>
 
                                 </a>
 
