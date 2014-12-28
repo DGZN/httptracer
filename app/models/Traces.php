@@ -106,6 +106,24 @@ class Trace {
 
 		}
 
+		if ( count($apdex['satifactory']) ){
+
+			$apdex['stats']['satifactory'] = count($apdex['satifactory']);
+
+		}
+
+		if ( count($apdex['tolerable']) ){
+
+			$apdex['stats']['tolerable'] = count($apdex['tolerable']);
+
+		}
+
+		if ( count($apdex['frusturating']) ){
+
+			$apdex['stats']['frusturating'] = count($apdex['frusturating']);
+
+		}
+
 
 
 		return $apdex;
