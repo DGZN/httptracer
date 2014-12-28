@@ -140,7 +140,7 @@ class Trace {
 		
 		$tolerables = count($apdex['tolerable']) ? count($apdex['tolerable']) : 0;
 
-        $apdex['score'] = ( ( $satisfied + ( $tolerables / 2 ) ) / count($apdex['stats']['total']) );
+        $apdex['score'] = ( ( $satisfied + ( $tolerables / 2 ) ) / count($traces) );
 
 		return $apdex;
 	}
