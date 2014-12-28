@@ -32,14 +32,17 @@ class Trace {
 
 		$timeSinceLastTrace = round( abs( time() - $data['records'][0]['timestamp'] ) / 60) ;
 
+		$apdex = $this->calculate_apdex($data['records']);
+
 		return [
 
-			'avg'       => number_format(( $avg ? floor( $avg / count($traces) ) : 0 )),
-			'min' 		=> number_format(min($int)),
-			'max'		=> number_format(max($int)),
-			'apdex'     => $this->calculate_apdex($data['records']), // SHOULD BE IN OWN CLASS
-			'report' => $timeSinceLastTrace . ' minutes since last trace',
-			'records'   => array_reverse($data['records'])
+			'avg'        => number_format(( $avg ? floor( $avg / count($traces) ) : 0 )),
+			'min' 		 => number_format(min($int)),
+			'max'		 => number_format(max($int)),
+			'apdexScore' => number_format($apdex['score']),
+			'apdex'      => $apdex, // SHOULD BE IN OWN CLASS
+			'report'     => $timeSinceLastTrace . ' minutes since last trace',
+			'records'    => array_reverse($data['records'])
 
 		];
 		
