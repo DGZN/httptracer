@@ -108,9 +108,17 @@ class Trace {
 
 		$apdex['score'] = ( ( count($apdex['satifactory']['records']) + ( count($apdex['tolerable']['records']) / 2 ) ) / 2 );
 
-		$apdex['satifactory']['count'] = count($apdex['satifactory']['records']);
-		$apdex['tolerable']['count'] = count($apdex['tolerable']['records']);
-		$apdex['frusturating']['count'] = count($apdex['frusturating']['records']);
+		if ( $apdex['satifactory']['records'] ) 
+
+			$apdex['satifactory']['count'] = count($apdex['satifactory']['records']);
+
+		if ( $apdex['tolerable']['records'] )
+
+			$apdex['tolerable']['count'] = count($apdex['tolerable']['records']);
+
+		if ( $apdex['frusturating']['records'] )
+
+			$apdex['frusturating']['count'] = count($apdex['frusturating']['records']);
 
 
 		return $apdex;
