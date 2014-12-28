@@ -81,6 +81,7 @@
 	position: relative;
 	margin-top: 50px;
 	color: #ffffff;
+	font-weight: 200;
 }
 
 .dataTables_wrapper .dataTables_filter input {
