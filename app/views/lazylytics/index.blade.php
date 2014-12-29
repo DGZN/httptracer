@@ -273,7 +273,7 @@ small, .small {
 
                 <div class="the-box no-border bg-info rounded tiles-information">
 
-                    <i class="fa fa-smile-o icon-bg"></i>
+                    <i class="fa {{$endpoint['traces']['apdex']['level']}} icon-bg"></i>
 
                     <div class="tiles-inner text-center">
 
@@ -289,7 +289,7 @@ small, .small {
 
                         <div class="progress no-rounded progress-xs">
 
-                          <div class="progress-bar {{$endpoint['traces']['apdex']['level']}}" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                          <div class="progress-bar {{$endpoint['traces']['apdex']['level']}}" role="progressbar" aria-valuenow="{{$endpoint['traces']['apdex']['pct']}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$endpoint['traces']['apdex']['pct']}}%">
                           </div>
 
                         </div>

@@ -153,10 +153,11 @@ class Trace {
 
         $apdex['score'] = ( ( $satisfied + ( $tolerables / 2 ) ) / count($traces) );
 
-        if ( $apdex['score'] <= 0.5 ) $apdex['level'] = 'apdex-bad';
-        if ( ($apdex['score'] >= 0.5) && ($apdex['score'] <= 0.75) ) $apdex['level'] = 'apdex-average';
-        if ( $apdex['score'] > 0.75 ) $apdex['level'] = 'apdex-good';
-        
+        if ( $apdex['score'] <= 0.5 ) $apdex['level'] = 'apdex-bad fa-frown-o';
+        if ( ($apdex['score'] >= 0.5) && ($apdex['score'] <= 0.75) ) $apdex['level'] = 'apdex-average fa-meh-o';
+        if ( $apdex['score'] > 0.75 ) $apdex['level'] = 'apdex-good fa-smile-o';
+
+        $apdex['pct'] = number_format( $apdex['score'] * 100 );
 
 		return $apdex;
 	}
