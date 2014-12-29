@@ -163,10 +163,12 @@
 
 .tiles-information .icon-bg {
     position: absolute;
-    right: 0px;
-    bottom: 0px;
-    font-size: 4.5em;
-    color: #fff;
+    right: 2.5px;
+    bottom: 35%;
+    font-size: 2.5em;
+    color: #fff !important;
+    background-image: none !important;
+    background-color: transparent !important; 
     opacity: 0.02;
     filter: alpha(opacity=8);
     -webkit-transform: rotate(-45deg);
@@ -201,8 +203,9 @@
 
 h1.bolded, h2.bolded, h3.bolded, h4.bolded, h5.bolded, h6.bolded {
     position: relative;
-    left: 5%;
-    font-weight: 400;
+    left: 3.5%;
+    font-weight: 200;
+    font-size: 24px;
 }
 
 h1.bolded .sub {
@@ -238,16 +241,22 @@ h1.bolded .sub {
     margin-bottom: 20px;
     overflow: hidden;
     /*background-color: #f5f5f5;*/
-    /*background-color: #1E1E1E;*/
-    background-color: rgba(44,44,44,1);
+    background-color: #1E1E1E;
+   /* background-color: rgba(44,44,44,1);*/
     background-image: none !important; 
     border-radius: 4px;
     -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
     box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
 }
 
-small, .small {
-    font-size: 85%;
+small {
+    font-size: 105%;
+    font-weight: 300;
+}
+
+small .sub{
+    font-size: 75%;
+    font-style: italic;
 }
 
 
@@ -273,7 +282,7 @@ small, .small {
 
                 <div class="the-box no-border bg-info rounded tiles-information">
 
-                    <i class="fa {{$endpoint['traces']['apdex']['level']}} icon-bg"></i>
+                    <!-- <i class="fa {{$endpoint['traces']['apdex']['level']}} icon-bg"></i> -->
 
                     <div class="tiles-inner text-center">
 
@@ -300,7 +309,7 @@ small, .small {
 
                         </a>  -->
 
-                        <p><small>{{ $endpoint['traces']['avg'] }} ms</small></p>
+                        <p><small>{{ $endpoint['traces']['avg'] }} </small></p>
 
                     </div>
 
