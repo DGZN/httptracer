@@ -157,7 +157,7 @@ class Trace {
         if ( ($apdex['score'] >= 0.5) && ($apdex['score'] <= 0.75) ) $apdex['level'] = 'apdex-average fa-meh-o';
         if ( $apdex['score'] > 0.75 ) $apdex['level'] = 'apdex-good fa-smile-o';
 
-        $apdex['pct'] = number_format( $apdex['score'] * 100 );
+		$apdex['pct'] = ($apdex['score'] > 0 ? number_format( $apdex['score'] * 100 ) : 100);
 
 		return $apdex;
 	}
