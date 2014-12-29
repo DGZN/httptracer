@@ -99,15 +99,152 @@
 
 .apdex-bad {
     color: red !important;
+    background-color: rgba(219,15,15,.2);
+    /*box-shadow: 3px 3px 5px 6px rgba(219,15,15,.2);*/
 }
 
 .apdex-average {
     color: blue !important;
+    background-color: rgba(73,15,219,.1);
+    /*box-shadow: 3px 3px 5px 6px rgba(72,15,219,1);*/
 }
 
 .apdex-good {
-    color: green !important;
+    color: rgba(18,219,15,.1);
+/*    box-shadow: 3px 3px 5px 6px rgba(18,219,15,.09);*/
 }
+
+.endpoint-apdex-level {
+    position: absolute;
+    top: 80%;
+    left: 5%;
+    height: 5%;
+    width: 95%;
+    display: block;
+    border-radius: 25px;
+    border-color: 1px solid black;
+}
+
+/* DASHBOARD Style */
+
+.the-box.rounded {
+    border-radius: 10px;
+}
+.the-box.no-border {
+    border: none;
+}
+.tiles-information {
+    overflow: hidden;
+    position: relative;
+}
+
+.bg-info {
+    /*background-color: #3BAFDA;*/
+    background-color: rgba(44,44,44,1);
+}
+.bg-dark, .bg-primary, .bg-success, .bg-info, .bg-danger, .bg-warning {
+    color: #fff;
+}
+
+.the-box {
+    padding: 15px;
+    margin-bottom: 30px;
+    /*background: #fff;*/
+    border: 1px solid #D5DAE0;
+    position: relative;
+}
+
+
+
+.tiles-information .icon-bg {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 120px;
+    color: #fff;
+    opacity: 0.08;
+    filter: alpha(opacity=8);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.fa {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-group:before, .fa-users:before {
+    content: "\f0c0";
+}
+
+.tiles-information .tiles-inner {
+    position: relative;
+    z-index: 2;
+}
+
+.text-center {
+    text-align: center;
+}
+
+h1.bolded, h2.bolded, h3.bolded, h4.bolded, h5.bolded, h6.bolded {
+    position: relative;
+    left: 5%;
+    font-weight: 400;
+}
+
+h1.bolded .sub {
+    position: relative;
+    width: 0px;
+    top: 8px;
+    left: -8px;
+    font-weight: 150;
+    font-size: 14px;
+    font-style: italic;
+    color: #FFFFFF;
+
+}
+.tiles-information .progress {
+    margin: 20px -15px;
+}
+
+.progress.no-rounded {
+    border-radius: 0px;
+}
+
+.progress.progress-xs {
+    height: 5px;
+}
+
+.progress {
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0);
+}
+
+.progress {
+    height: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+}
+
+small, .small {
+    font-size: 85%;
+}
+
+
+
+
 </style>
 
 @stop
@@ -120,11 +257,56 @@
 
           <div class="row">
 
+                        <div class="col-sm-3">
+                            <div class="the-box no-border bg-info rounded tiles-information">
+                                <i class="fa fa-smile-o icon-bg"></i>
+                                <div class="tiles-inner text-center">
+                                    <p>Featured Products</p>
+                                    <h1 class="bolded">0.86 <span class="sub">4</span></h1> 
+                                    <div class="progress no-rounded progress-xs">
+                                      <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                      </div><!-- /.progress-bar .progress-bar-info -->
+                                    </div><!-- /.progress .no-rounded -->
+                                    <p><small>2.1% ^</small></p>
+                                </div><!-- /.tiles-inner -->
+                            </div><!-- /.the-box no-border -->
+                        </div>
+
+                        <div class="col-sm-3">
+                            <div class="the-box no-border bg-info rounded tiles-information">
+                                <i class="fa fa-frown-o icon-bg"></i>
+                                <div class="tiles-inner text-center">
+                                    <p>Featured Products</p>
+                                    <h1 class="bolded">0.86 <span class="sub">4</span></h1> 
+                                    <div class="progress no-rounded progress-xs">
+                                      <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                      </div><!-- /.progress-bar .progress-bar-info -->
+                                    </div><!-- /.progress .no-rounded -->
+                                    <p><small>2.1% ^</small></p>
+                                </div><!-- /.tiles-inner -->
+                            </div><!-- /.the-box no-border -->
+                        </div>
+
+                        <div class="col-sm-3">
+                            <div class="the-box no-border bg-info rounded tiles-information">
+                                <i class="fa fa-meh-o icon-bg"></i>
+                                <div class="tiles-inner text-center">
+                                    <p>Featured Products</p>
+                                    <h1 class="bolded">0.86 <span class="sub">4</span></h1> 
+                                    <div class="progress no-rounded progress-xs">
+                                      <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                      </div><!-- /.progress-bar .progress-bar-info -->
+                                    </div><!-- /.progress .no-rounded -->
+                                    <p><small>2.1% ^</small></p>
+                                </div><!-- /.tiles-inner -->
+                            </div><!-- /.the-box no-border -->
+                        </div>
+
             @foreach ($endpoints as $endpoint)
 
             <div class="col-sm-4 col-md-4 col-lg-3 ">
 
-                 <div class="panel panel-default">
+                 <div class="panel panel-default ">
 
                     <div class="panel-heading"> 
 
@@ -136,7 +318,7 @@
 
                         <a href="{{ url( '/endpoints/' . $endpoint->id . '/edit' ) }}" >
 
-                            <span class="pull-right glyphicon glyphicon-bookmark "></span> 
+                            <span class="pull-right glyphicon glyphicon-bookmark {{$endpoint['traces']['apdex']['level']}}"></span> 
 
                         </a> 
 
@@ -150,7 +332,7 @@
 
                                 <a href="/endpoints/{{$endpoint->id}}">
                                 
-                                    <h4 class="text {{$endpoint['traces']['apdex']['level']}}"> {{$endpoint['traces']['apdexScore']}} <span class="sub"> 4 </span> </h4>
+                                    <h4 class="text "> {{$endpoint['traces']['apdexScore']}} <span class="sub"> 4 </span> </h4>
 
                                 </a>
 
@@ -159,6 +341,8 @@
 
 
                         </div>
+
+                        
 
                     </div>
 
