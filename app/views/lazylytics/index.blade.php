@@ -98,22 +98,22 @@
 }
 
 .apdex-bad {
-    color: red !important;
-    background-color: rgba(219,15,15,1);
+    color: #a94442 !important;
+    background-color: rgba(169,68,68,1);
     background-image: none !important; 
     /*box-shadow: 3px 3px 5px 6px rgba(219,15,15,.2);*/
 }
 
 .apdex-average {
     color: blue !important;
-    background-color: rgba(73,15,219,1);
+    background-color: rgba(51,122,183,1);
     background-image: none !important; 
     /*box-shadow: 3px 3px 5px 6px rgba(72,15,219,1);*/
 }
 
 .apdex-good {
     color: rgba(18,219,15,1);
-    background-color: rgba(18,219,15,1);
+    background-color: rgba(60,118,61,1);
     background-image: none !important; 
 
 /*    box-shadow: 3px 3px 5px 6px rgba(18,219,15,.09);*/
@@ -165,7 +165,7 @@
     position: absolute;
     right: 0px;
     bottom: 0px;
-    font-size: 5em;
+    font-size: 4.5em;
     color: #fff;
     opacity: 0.02;
     filter: alpha(opacity=8);
