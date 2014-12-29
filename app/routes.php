@@ -9,7 +9,7 @@ Route::get('/debug', function()
 
 	$HTTP = new HTTP;
 
-	return $HTTP->Trace('http://gwlessons.cloudapp.net/api/v1/products/free/');
+	return $HTTP->Trace('http://gwlessons.cloudapp.net');
 });
 
 Route::get('/', function()
