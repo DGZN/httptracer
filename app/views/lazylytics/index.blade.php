@@ -158,11 +158,11 @@
 
 .tiles-information .icon-bg {
     position: absolute;
-    right: 0;
-    bottom: 0;
-    font-size: 120px;
+    right: 0px;
+    bottom: 0px;
+    font-size: 5em;
     color: #fff;
-    opacity: 0.08;
+    opacity: 0.02;
     filter: alpha(opacity=8);
     -webkit-transform: rotate(-45deg);
     -moz-transform: rotate(-45deg);
@@ -232,7 +232,10 @@ h1.bolded .sub {
     height: 20px;
     margin-bottom: 20px;
     overflow: hidden;
-    background-color: #f5f5f5;
+    /*background-color: #f5f5f5;*/
+    /*background-color: #1E1E1E;*/
+    background-color: rgba(44,44,44,1);
+    background-image: none !important; 
     border-radius: 4px;
     -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
     box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
@@ -257,97 +260,47 @@ small, .small {
 
           <div class="row">
 
-                        <div class="col-sm-3">
-                            <div class="the-box no-border bg-info rounded tiles-information">
-                                <i class="fa fa-smile-o icon-bg"></i>
-                                <div class="tiles-inner text-center">
-                                    <p>Featured Products</p>
-                                    <h1 class="bolded">0.86 <span class="sub">4</span></h1> 
-                                    <div class="progress no-rounded progress-xs">
-                                      <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                      </div><!-- /.progress-bar .progress-bar-info -->
-                                    </div><!-- /.progress .no-rounded -->
-                                    <p><small>2.1% ^</small></p>
-                                </div><!-- /.tiles-inner -->
-                            </div><!-- /.the-box no-border -->
-                        </div>
 
-                        <div class="col-sm-3">
-                            <div class="the-box no-border bg-info rounded tiles-information">
-                                <i class="fa fa-frown-o icon-bg"></i>
-                                <div class="tiles-inner text-center">
-                                    <p>Featured Products</p>
-                                    <h1 class="bolded">0.86 <span class="sub">4</span></h1> 
-                                    <div class="progress no-rounded progress-xs">
-                                      <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                      </div><!-- /.progress-bar .progress-bar-info -->
-                                    </div><!-- /.progress .no-rounded -->
-                                    <p><small>2.1% ^</small></p>
-                                </div><!-- /.tiles-inner -->
-                            </div><!-- /.the-box no-border -->
-                        </div>
-
-                        <div class="col-sm-3">
-                            <div class="the-box no-border bg-info rounded tiles-information">
-                                <i class="fa fa-meh-o icon-bg"></i>
-                                <div class="tiles-inner text-center">
-                                    <p>Featured Products</p>
-                                    <h1 class="bolded">0.86 <span class="sub">4</span></h1> 
-                                    <div class="progress no-rounded progress-xs">
-                                      <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                      </div><!-- /.progress-bar .progress-bar-info -->
-                                    </div><!-- /.progress .no-rounded -->
-                                    <p><small>2.1% ^</small></p>
-                                </div><!-- /.tiles-inner -->
-                            </div><!-- /.the-box no-border -->
-                        </div>
 
             @foreach ($endpoints as $endpoint)
 
-            <div class="col-sm-4 col-md-4 col-lg-3 ">
+            <div class="col-sm-3">
 
-                 <div class="panel panel-default ">
+                <div class="the-box no-border bg-info rounded tiles-information">
 
-                    <div class="panel-heading"> 
+                    <i class="fa fa-smile-o icon-bg"></i>
 
-                        <a href="{{ url( 'endpoints/' . $endpoint->id . '' ) }}" >
+                    <div class="tiles-inner text-center">
+
+                        <!-- <a href="{{ url( 'endpoints/' . $endpoint->id . '' ) }}" >
 
                             {{$endpoint->name}}
 
-                        </a>
+                        </a> -->
 
-                        <a href="{{ url( '/endpoints/' . $endpoint->id . '/edit' ) }}" >
+                        <p>{{$endpoint->name}}</p>
 
-                            <span class="pull-right glyphicon glyphicon-bookmark {{$endpoint['traces']['apdex']['level']}}"></span> 
+                        <h1 class="bolded">{{$endpoint['traces']['apdexScore']}} <span class="sub"> 4 </span></h1> 
 
-                        </a> 
+                        <div class="progress no-rounded progress-xs">
 
-                    </div>
-      
-                    <div class="panel-body">
-                     
-                        <div class="endpointStats row">
-
-                            <div class="col-md-12">
-
-                                <a href="/endpoints/{{$endpoint->id}}">
-                                
-                                    <h4 class="text "> {{$endpoint['traces']['apdexScore']}} <span class="sub"> 4 </span> </h4>
-
-                                </a>
-
-
-                            </div>
-
+                          <div class="progress-bar {{$endpoint['traces']['apdex']['level']}}" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                          </div>
 
                         </div>
 
-                        
+                        <!-- <a href="{{ url( '/endpoints/' . $endpoint->id . '/edit' ) }}" >
+
+                            <span class="pull-right glyphicon glyphicon-bookmark {{$endpoint['traces']['apdex']['level']}}"></span> 
+
+                        </a>  -->
+
+                        <p><small>{{ $endpoint['traces']['avg'] }} ms</small></p>
 
                     </div>
 
                 </div>
-
+                
             </div>
 
             @endforeach
