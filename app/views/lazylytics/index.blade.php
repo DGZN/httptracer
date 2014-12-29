@@ -99,18 +99,23 @@
 
 .apdex-bad {
     color: red !important;
-    background-color: rgba(219,15,15,.2);
+    background-color: rgba(219,15,15,1);
+    background-image: none !important; 
     /*box-shadow: 3px 3px 5px 6px rgba(219,15,15,.2);*/
 }
 
 .apdex-average {
     color: blue !important;
-    background-color: rgba(73,15,219,.1);
+    background-color: rgba(73,15,219,1);
+    background-image: none !important; 
     /*box-shadow: 3px 3px 5px 6px rgba(72,15,219,1);*/
 }
 
 .apdex-good {
-    color: rgba(18,219,15,.1);
+    color: rgba(18,219,15,1);
+    background-color: rgba(18,219,15,1);
+    background-image: none !important; 
+
 /*    box-shadow: 3px 3px 5px 6px rgba(18,219,15,.09);*/
 }
 
